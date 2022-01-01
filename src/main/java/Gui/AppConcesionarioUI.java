@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package aplicacion.concesionario.gui;
+package Gui;
 
 /**
  *
@@ -37,7 +37,6 @@ public class AppConcesionarioUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 243, 232));
-        setPreferredSize(new java.awt.Dimension(410, 300));
         setResizable(false);
         setSize(new java.awt.Dimension(390, 285));
         getContentPane().setLayout(null);

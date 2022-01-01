@@ -17,8 +17,8 @@ public class Concesionario {
    
    
 
-   public static Cliente crearCliente(String nombre, int telefono, String correo, String dni, String direccion){
-       Cliente cliente = new Cliente(nombre,telefono,correo,dni,direccion);
+   public static Cliente crearCliente(String nombre, int telefono, String correo, String dni, String direccion, String contraseña){
+       Cliente cliente = new Cliente(nombre,telefono,correo,dni,direccion,contraseña);
        clientes.add(cliente);
        //Meter al cliente en la persistencia
        return cliente;
@@ -41,7 +41,20 @@ public class Concesionario {
     public static ArrayList<Vehiculo> getVehiculos() {
         return vehiculos;
     }
+
+    public static void setClientes(ArrayList<Cliente> clientes) {
+        Concesionario.clientes = clientes;
+    }
+
+    public static void setModelos(ArrayList<Modelo> modelos) {
+        Concesionario.modelos = modelos;
+    }
+
+    public static void setVehiculos(ArrayList<Vehiculo> vehiculos) {
+        Concesionario.vehiculos = vehiculos;
+    }
    
+    
    
     
     
