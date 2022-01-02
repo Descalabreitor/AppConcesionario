@@ -1,21 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package file;
+package File;
+
 import Model.*;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import static Model.Concesionario.*;
-/**
- *
- * @author david
- */
-public class RecuperarDatos {
+
+public class recuperarDatos {
+
     public static ArrayList<Cliente> recuperarClientes() throws IOException {
         BufferedReader lector = null;
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -26,11 +21,10 @@ public class RecuperarDatos {
                 String[] lineaDividida = linea.split(";");
                 System.out.println(Arrays.toString(lineaDividida));
                 Cliente cliente = new Cliente(lineaDividida[0],Integer.parseInt(lineaDividida[1]),lineaDividida[2],lineaDividida[3],lineaDividida[4],lineaDividida[5]);
-                ArrayList<Pedido> pedidos = recuperarPedidosCliente(lineaDividida);
+                ArrayList<Pedido> pedidos = recuperarPedidosCliente(lineaDividida[3]);
                 añadirPedidosAlCliente(pedidos,cliente);
                 clientes.add(cliente);
-
-
+                linea = lector.readLine();
             }
         } catch (Exception e) {
         } finally {
@@ -47,11 +41,8 @@ public class RecuperarDatos {
         }
     }
 
-    private static ArrayList<Pedido> recuperarPedidosCliente(String[] lineaDividida) {
-
-        String[] ids = lineaDividida[6].substring(1,lineaDividida[6].length()-1).split(",");
-
-        //La linea anterior es una lista de ids de los pedidos de ese cliente, necesito la lista total de pedidos para sacar los pedidos de esos ids
+    private static ArrayList<Pedido> recuperarPedidosCliente(String dni) {
+        return new ArrayList<Pedido>(getPedidos().stream().filter(pedido -> pedido.getCliente().getDni().equalsIgnoreCase(dni.trim())).collect(Collectors.toList()));
     }
 
     public static ArrayList<Modelo> recuperarModelos() throws IOException {
@@ -65,12 +56,13 @@ public class RecuperarDatos {
 
                 String[] lineaDividida = linea.split(";");
                 System.out.println(Arrays.toString(lineaDividida));
-                Vehiculo vehiculoDisponible = recuperarVehiculoDisponible(lineaDividida);
-                ArrayList<Extra> extrasDisponibles = recuperarExtrasDelVehiculo(lineaDividida);
-                Modelo modelo = new Modelo(vehiculoDisponible, Integer.parseInt(lineaDividida[1]),Integer.parseInt(lineaDividida[2]), extrasDisponibles);
+                ArrayList<Extra> extrasDisponibles = recuperarExtras(lineaDividida[4]);
+                ArrayList<Integer> vehiculosDisponibles = recuperarVehiculosDisponibles(lineaDividida[1]);
+                Modelo modelo = new Modelo(lineaDividida[0], vehiculosDisponibles, Integer.parseInt(lineaDividida[2]),Integer.parseInt(lineaDividida[3]), extrasDisponibles);
                 modelos.add(modelo);
                 linea = lector.readLine();
             }
+
         } catch (Exception e) {
         } finally {
             if (null != lector) {
@@ -81,14 +73,24 @@ public class RecuperarDatos {
         return modelos;
     }
 
-    private static ArrayList<Extra> recuperarExtrasDelVehiculo(String[] lineaDividida) {
-        //tengo una lista de nombres de extras, necesito una funcion de getExtras con todos los posibles para ponerselo
+    private static ArrayList<Integer> recuperarVehiculosDisponibles(String listaDeInts) {
+        String[] nombresDeExtras = listaDeInts.substring(1,listaDeInts.length()-1).split(",");
+        ArrayList<Integer> vehiculosDisponibles = new ArrayList<Integer>();
+        for(String nombre:nombresDeExtras){
+            vehiculosDisponibles.add(Integer.parseInt(nombre.trim()));
+        }
+        return vehiculosDisponibles;
     }
 
-    private static Vehiculo recuperarVehiculoDisponible(String[] lineaDividida) {
-        ArrayList<Vehiculo> vehiculos = getVehiculos();
-        return vehiculos.stream().filter(vehiculo -> vehiculo.getIdItemAlmacen() == Integer.parseInt(lineaDividida[0])).findFirst().orElse(null);
-
+    private static ArrayList<Extra> recuperarExtras(String listaDeExtras) {
+        String[] nombresDeExtras = listaDeExtras.substring(1,listaDeExtras.length()-1).split(",");
+        ArrayList<Extra> extras = getExtras();
+        ArrayList<Extra> extrasBuscados = new ArrayList<Extra>();
+        for (int i=0;i<nombresDeExtras.length;i++){
+            String nombreExtra=nombresDeExtras[i].trim();
+            extrasBuscados.add(extras.stream().filter(extra -> extra.getNombre().equalsIgnoreCase(nombreExtra)).findFirst().orElse(null));
+        }
+        return extrasBuscados;
     }
 
     public static ArrayList<Pedido> recuperarPedidos() throws IOException {
@@ -103,9 +105,9 @@ public class RecuperarDatos {
                 System.out.println(Arrays.toString(lineaDividida));
                 Cliente cliente = recuperarClienteDePedido(lineaDividida);
                 Modelo modelo = recuperarModeloDePedido(lineaDividida);
-                Pedido pedido = new Pedido(cliente,modelo,Integer.parseInt(lineaDividida[2]));
-                //no guardamos los extras para calcular el precio, pero los necesitamos para el constructor
-                //2 soluciones, 1º los guardamos en el pedido, 2º, no son necesarios para el constructor, el precio se actualiza con una funcion si se añaden extras a ese objeto
+                ArrayList<Extra> extras = recuperarExtras(lineaDividida[2]);
+                Pedido pedido = new Pedido(cliente,modelo,extras);
+                pedidos.add(pedido);
                 linea = lector.readLine();
             }
         } catch (Exception e) {
@@ -151,3 +153,7 @@ public class RecuperarDatos {
         }
     }
 }
+
+
+
+

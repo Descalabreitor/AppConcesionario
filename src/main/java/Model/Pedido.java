@@ -77,8 +77,9 @@ public class Pedido {
         this.estado = estado;
     }
     
+    public ArrayList<Extra> getExtrasSeleccionados() {
+        return extrasSeleccionados;
+    }
     
-
-
     
 }
