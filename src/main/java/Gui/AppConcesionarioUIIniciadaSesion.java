@@ -36,7 +36,7 @@ public class AppConcesionarioUIIniciadaSesion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 243, 232));
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(300, 400));
         setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(null);
 

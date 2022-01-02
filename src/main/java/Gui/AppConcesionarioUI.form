@@ -6,7 +6,9 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="e8" green="f3" red="99" type="rgb"/>
     </Property>
-    <Property name="resizable" type="boolean" value="false"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[300, 400]"/>
+    </Property>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[390, 285]"/>
     </Property>
@@ -66,10 +68,10 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="catalogoButton" min="-2" pref="170" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="label1" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="label1" min="-2" pref="212" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="logInButton" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="signInButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -85,8 +87,10 @@
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="label1" min="-2" max="-2" attributes="0"/>
-                      <Component id="logInButton" min="-2" max="-2" attributes="0"/>
-                      <Component id="signInButton" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="signInButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="logInButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="30" max="-2" attributes="0"/>
