@@ -10,6 +10,8 @@ package Gui;
  */
 
 import Model.Concesionario;
+import Model.Modelo;
+import java.util.ArrayList;
 public class AppMainForm extends javax.swing.JFrame {
 
     /**
@@ -32,6 +34,10 @@ public class AppMainForm extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         signinButton = new javax.swing.JButton();
         pedidosButton = new javax.swing.JButton();
+        modelList = new java.awt.List();
+        catalogoButton = new javax.swing.JButton();
+        modelDetails = new java.awt.List();
+        comentariosList = new java.awt.List();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(700, 400));
@@ -70,28 +76,71 @@ public class AppMainForm extends javax.swing.JFrame {
             }
         });
 
+        modelList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modelListActionPerformed(evt);
+            }
+        });
+
+        catalogoButton.setText("Mostrar Catalogo");
+        catalogoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                catalogoButtonActionPerformed(evt);
+            }
+        });
+
+        modelDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modelDetailsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
         Background.setLayout(BackgroundLayout);
         BackgroundLayout.setHorizontalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
-                .addContainerGap(439, Short.MAX_VALUE)
-                .addComponent(loginButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pedidosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(signinButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addContainerGap()
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(modelList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(catalogoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                        .addComponent(loginButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pedidosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(signinButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39))
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comentariosList, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                            .addComponent(modelDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginButton)
-                    .addComponent(signinButton)
-                    .addComponent(pedidosButton))
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(loginButton)
+                            .addComponent(signinButton)
+                            .addComponent(pedidosButton))
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
+                        .addComponent(catalogoButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(modelList, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addComponent(modelDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comentariosList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,6 +191,21 @@ public class AppMainForm extends javax.swing.JFrame {
         //HAcer q no aparezca hasta haber iniciado sesion
     }//GEN-LAST:event_pedidosButtonActionPerformed
 
+    private void modelListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelListActionPerformed
+        // TODO add your handling code here:
+        showModelDetails(Concesionario.getModelos().get(modelList.getSelectedIndex()));
+        showModelComents(Concesionario.getModelos().get(modelList.getSelectedIndex()));
+    }//GEN-LAST:event_modelListActionPerformed
+
+    private void catalogoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoButtonActionPerformed
+        // TODO add your handling code here:
+        showModelList();
+    }//GEN-LAST:event_catalogoButtonActionPerformed
+
+    private void modelDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelDetailsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modelDetailsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,8 +243,30 @@ public class AppMainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
+    private javax.swing.JButton catalogoButton;
+    private java.awt.List comentariosList;
     private javax.swing.JButton loginButton;
+    private java.awt.List modelDetails;
+    private java.awt.List modelList;
     private javax.swing.JButton pedidosButton;
     private javax.swing.JButton signinButton;
     // End of variables declaration//GEN-END:variables
+
+    private void showModelDetails(Modelo modelo) {
+        modelDetails.add(modelo.getNombre());
+        modelDetails.add(String.valueOf(modelo.getIdModelo()));
+        modelDetails.add(String.valueOf(modelo.getPrecioBase()));
+    }
+
+    private void showModelList() {
+        int i;
+        modelList.removeAll();
+        for(i=0;i < Concesionario.getModelos().size();i++)
+            modelList.add(Concesionario.getModelos().get(i).getNombre());
+    }
+
+    private void showModelComents(Modelo modelo) {
+        comentariosList.removeAll();
+        for(int i = 0; i < modelo.)
+    }
 }
