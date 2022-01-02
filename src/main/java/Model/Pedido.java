@@ -16,6 +16,7 @@ public class Pedido {
     private String fechaEntrega;
     private Cliente cliente;
     private Modelo modelo;
+    private ArrayList<Extra> extrasSeleccionados;
     private int precio;
     private Estado estado;
 
@@ -32,18 +33,19 @@ public class Pedido {
         this.cliente = cliente;
         this.modelo = modelo;
         this.estado = Estado.peticionEnvidada;
-        calcularPrecio(Extras);
+        this.extrasSeleccionados = Extras;
+        calcularPrecio();
         this.idPedido = idPedido;
         
     }
 
-    public void calcularPrecio(ArrayList<Extra> Extras){
+    public void calcularPrecio(){
         Extra extraSeleccionado;
         int index = 0;
         int precioAñadido = 0;
         try{
             while(true){
-                precioAñadido += Extras.get(index).getPrecioAñadido();
+                precioAñadido += this.extrasSeleccionados.get(index).getPrecioAñadido();
                 index++;
             }
         }catch(Exception e){
