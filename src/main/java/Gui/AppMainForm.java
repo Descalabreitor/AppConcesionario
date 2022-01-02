@@ -10,8 +10,8 @@ package Gui;
  */
 
 import Model.Concesionario;
+import Model.Extra;
 import Model.Modelo;
-import java.util.ArrayList;
 public class AppMainForm extends javax.swing.JFrame {
 
     /**
@@ -38,12 +38,20 @@ public class AppMainForm extends javax.swing.JFrame {
         catalogoButton = new javax.swing.JButton();
         modelDetails = new java.awt.List();
         comentariosList = new java.awt.List();
+        DetailsLabel = new javax.swing.JLabel();
+        ComentsLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        comentarioTextBox = new javax.swing.JTextField();
+        comentButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
+        setPreferredSize(new java.awt.Dimension(706, 384));
 
         Background.setBackground(new java.awt.Color(255, 255, 255));
-        Background.setPreferredSize(new java.awt.Dimension(700, 400));
+        Background.setPreferredSize(new java.awt.Dimension(706, 384));
+        Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loginButton.setText("Iniciar Sesión");
         loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -56,6 +64,7 @@ public class AppMainForm extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
+        Background.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 6, -1, -1));
 
         signinButton.setText("Registrarse");
         signinButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -68,6 +77,7 @@ public class AppMainForm extends javax.swing.JFrame {
                 signinButtonActionPerformed(evt);
             }
         });
+        Background.add(signinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(619, 6, 77, -1));
 
         pedidosButton.setText("Pedidos");
         pedidosButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,12 +85,14 @@ public class AppMainForm extends javax.swing.JFrame {
                 pedidosButtonActionPerformed(evt);
             }
         });
+        Background.add(pedidosButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 6, 57, -1));
 
         modelList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modelListActionPerformed(evt);
             }
         });
+        Background.add(modelList, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 62, 248, 312));
 
         catalogoButton.setText("Mostrar Catalogo");
         catalogoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -88,70 +100,56 @@ public class AppMainForm extends javax.swing.JFrame {
                 catalogoButtonActionPerformed(evt);
             }
         });
+        Background.add(catalogoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 28, 248, -1));
 
         modelDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modelDetailsActionPerformed(evt);
             }
         });
+        Background.add(modelDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 62, 168, 122));
+        Background.add(comentariosList, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 216, 168, 158));
 
-        javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
-        Background.setLayout(BackgroundLayout);
-        BackgroundLayout.setHorizontalGroup(
-            BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(modelList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(catalogoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
-                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
-                        .addComponent(loginButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pedidosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(signinButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39))
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comentariosList, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                            .addComponent(modelDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        BackgroundLayout.setVerticalGroup(
-            BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(loginButton)
-                            .addComponent(signinButton)
-                            .addComponent(pedidosButton))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
-                        .addComponent(catalogoButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(modelList, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addComponent(modelDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comentariosList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        DetailsLabel.setForeground(new java.awt.Color(0, 0, 0));
+        DetailsLabel.setText("Detalles");
+        Background.add(DetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 32, 84, -1));
+
+        ComentsLabel.setForeground(new java.awt.Color(0, 0, 0));
+        ComentsLabel.setText("Comentarios");
+        Background.add(ComentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 190, 84, -1));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Información de contacto");
+        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 180, -1));
+
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Telefono: 928 13 54 60");
+        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 220, 30));
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Mail: concesionariopaco@gmail.com");
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 220, -1));
+
+        comentarioTextBox.setText("Comentario");
+        Background.add(comentarioTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 140, -1));
+
+        comentButton.setText("Añadir comentario");
+        comentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comentButtonActionPerformed(evt);
+            }
+        });
+        Background.add(comentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -189,6 +187,11 @@ public class AppMainForm extends javax.swing.JFrame {
 
     private void pedidosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidosButtonActionPerformed
         //HAcer q no aparezca hasta haber iniciado sesion
+        Pedidos ventanaPedidos = new Pedidos();
+        ventanaPedidos.showModelList();
+        ventanaPedidos.setVisible(true);
+        this.setVisible(false);
+        
     }//GEN-LAST:event_pedidosButtonActionPerformed
 
     private void modelListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelListActionPerformed
@@ -205,6 +208,14 @@ public class AppMainForm extends javax.swing.JFrame {
     private void modelDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelDetailsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modelDetailsActionPerformed
+
+    private void comentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comentButtonActionPerformed
+        // TODO add your handling code here:
+        String comentario = comentarioTextBox.getText();
+        String autor = Concesionario.getClienteActual().getDni();
+        Modelo modelo = Concesionario.getModelos().get(modelList.getSelectedIndex());
+        modelo.addComentario(comentario, autor);
+    }//GEN-LAST:event_comentButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,8 +254,15 @@ public class AppMainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
+    private javax.swing.JLabel ComentsLabel;
+    private javax.swing.JLabel DetailsLabel;
     private javax.swing.JButton catalogoButton;
+    private javax.swing.JButton comentButton;
+    private javax.swing.JTextField comentarioTextBox;
     private java.awt.List comentariosList;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton loginButton;
     private java.awt.List modelDetails;
     private java.awt.List modelList;
@@ -256,6 +274,11 @@ public class AppMainForm extends javax.swing.JFrame {
         modelDetails.add(modelo.getNombre());
         modelDetails.add(String.valueOf(modelo.getIdModelo()));
         modelDetails.add(String.valueOf(modelo.getPrecioBase()));
+        Extra extra;
+        for(int i = 0; i< modelo.getExtrasDisponibles().size();i++){
+           extra = modelo.getExtrasDisponibles().get(i);
+           modelDetails.add(extra.getNombre());
+        }
     }
 
     private void showModelList() {
@@ -267,6 +290,9 @@ public class AppMainForm extends javax.swing.JFrame {
 
     private void showModelComents(Modelo modelo) {
         comentariosList.removeAll();
-        for(int i = 0; i < modelo.)
+        for (int i = 0; i < modelo.getComentarios().size() ; i++) {
+            comentariosList.add(modelo.getComentarios().get(i).getAutorDni());
+            comentariosList.add(modelo.getComentarios().get(i).getComentario());
+        }
     }
 }
