@@ -155,7 +155,7 @@ public class SignInForm extends javax.swing.JFrame {
         String Contraseña = passwordText.getText();
         Concesionario.setClienteActual(Concesionario.crearCliente(
                 (String) Correo, telefono, Correo,(String) Dni, Direccion, Contraseña)); 
-        new AppMainForm().setVisible(true);
+        new AppConcesionarioUI().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ConfirmarDatosMouseClicked
 
@@ -170,7 +170,7 @@ public class SignInForm extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-        new AppMainForm().setVisible(true);
+        new AppConcesionarioUI().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3MouseClicked
 

@@ -5,6 +5,7 @@
 package Gui;
 
 import Model.Concesionario;
+import Model.Modelo;
 
 /**
  *
@@ -30,7 +31,7 @@ public class Pedidos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        moldelList = new java.awt.List();
+        modelList = new java.awt.List();
         extraList = new java.awt.List();
         list3 = new java.awt.List();
         jLabel1 = new javax.swing.JLabel();
@@ -57,9 +58,9 @@ public class Pedidos extends javax.swing.JFrame {
             }
         });
 
-        moldelList.addActionListener(new java.awt.event.ActionListener() {
+        modelList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moldelListActionPerformed(evt);
+                modelListActionPerformed(evt);
             }
         });
 
@@ -96,7 +97,7 @@ public class Pedidos extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(moldelList, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(modelList, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -122,7 +123,7 @@ public class Pedidos extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(moldelList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(modelList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(extraList, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
@@ -162,7 +163,7 @@ public class Pedidos extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        new AppMainForm().setVisible(true);
+        new AppConcesionarioUI().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -170,9 +171,9 @@ public class Pedidos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void moldelListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moldelListActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moldelListActionPerformed
+    private void modelListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelListActionPerformed
+        showModelExtras(Concesionario.getModelos().get(modelList.getSelectedIndex()));
+    }//GEN-LAST:event_modelListActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -224,14 +225,20 @@ public class Pedidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private java.awt.List list3;
-    private java.awt.List moldelList;
+    private java.awt.List modelList;
     private java.awt.List pedidosList;
     // End of variables declaration//GEN-END:variables
 
-void showModelList() {
+    void showModelList() {
         int i;
-        moldelList.removeAll();
+        modelList.removeAll();
         for(i=0;i < Concesionario.getModelos().size();i++)
-            moldelList.add(Concesionario.getModelos().get(i).getNombre());
+            modelList.add(Concesionario.getModelos().get(i).getNombre());
+    }
+
+    private void showModelExtras(Modelo get) {
+        int i;
+        
+    
     }
 }

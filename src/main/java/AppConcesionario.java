@@ -18,6 +18,6 @@ public class AppConcesionario {
     
     public static void main(String[] args){
         Concesionario concesionario = new Concesionario();
-  
+        new AppConcesionarioUI().setVisible(true);
     }
 }

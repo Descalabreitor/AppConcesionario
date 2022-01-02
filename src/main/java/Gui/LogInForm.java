@@ -146,7 +146,7 @@ public class LogInForm extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        new AppMainForm().setVisible(true);
+        new AppConcesionarioUI().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -163,7 +163,7 @@ public class LogInForm extends javax.swing.JFrame {
         if(Concesionario.getClientes().get(i).getDni() == dni &&
                 Concesionario.getClientes().get(i).getContraseña() == contraseña ){
             Concesionario.setClienteActual(Concesionario.getClientes().get(i));
-            new AppMainForm().setVisible(true);
+            new AppConcesionarioUI().setVisible(true);
             this.setVisible(false);
         }else{
             continue;

@@ -12,12 +12,12 @@ package Gui;
 import Model.Concesionario;
 import Model.Extra;
 import Model.Modelo;
-public class AppMainForm extends javax.swing.JFrame {
+public class AppConcesionarioUI extends javax.swing.JFrame {
 
     /**
      * Creates new form AppMainForm
      */
-    public AppMainForm() {
+    public AppConcesionarioUI() {
         initComponents();
     }
 
@@ -234,20 +234,21 @@ public class AppMainForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AppMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AppConcesionarioUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AppMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AppConcesionarioUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AppMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AppConcesionarioUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AppMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AppConcesionarioUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AppMainForm().setVisible(true);
+                new AppConcesionarioUI().setVisible(true);
             }
         });
     }
