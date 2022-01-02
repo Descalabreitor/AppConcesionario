@@ -15,7 +15,8 @@ public class Concesionario {
    private static ArrayList<Modelo> modelos;
    private static ArrayList<Vehiculo> vehiculos;
    private static ArrayList<Pedido> pedidos;
-   private static ArrayList<Extra> extras; 
+   private static ArrayList<Extra> extras;
+   private static Cliente clienteActual;
    
    
 
@@ -60,7 +61,20 @@ public class Concesionario {
     public static void setVehiculos(ArrayList<Vehiculo> vehiculos) {
         Concesionario.vehiculos = vehiculos;
     }
+
+    public static ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public static Cliente getClienteActual() {
+        return clienteActual;
+    }
+
+    public static void setClienteActual(Cliente clienteActual) {
+        Concesionario.clienteActual = clienteActual;
+    }
    
+    
     
    
     
