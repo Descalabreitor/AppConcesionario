@@ -50,8 +50,7 @@ public class AppConcesionarioUI extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(706, 384));
 
         Background.setBackground(new java.awt.Color(255, 255, 255));
-        Background.setPreferredSize(new java.awt.Dimension(706, 384));
-        Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Background.setPreferredSize(new java.awt.Dimension(800, 400));
 
         loginButton.setText("Iniciar Sesión");
         loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -64,7 +63,6 @@ public class AppConcesionarioUI extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
-        Background.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 6, -1, -1));
 
         signinButton.setText("Registrarse");
         signinButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,7 +75,6 @@ public class AppConcesionarioUI extends javax.swing.JFrame {
                 signinButtonActionPerformed(evt);
             }
         });
-        Background.add(signinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(619, 6, 77, -1));
 
         pedidosButton.setText("Pedidos");
         pedidosButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,14 +82,12 @@ public class AppConcesionarioUI extends javax.swing.JFrame {
                 pedidosButtonActionPerformed(evt);
             }
         });
-        Background.add(pedidosButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 6, 57, -1));
 
         modelList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modelListActionPerformed(evt);
             }
         });
-        Background.add(modelList, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 62, 248, 312));
 
         catalogoButton.setText("Mostrar Catalogo");
         catalogoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -100,38 +95,29 @@ public class AppConcesionarioUI extends javax.swing.JFrame {
                 catalogoButtonActionPerformed(evt);
             }
         });
-        Background.add(catalogoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 28, 248, -1));
 
         modelDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modelDetailsActionPerformed(evt);
             }
         });
-        Background.add(modelDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 62, 168, 122));
-        Background.add(comentariosList, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 216, 168, 158));
 
         DetailsLabel.setForeground(new java.awt.Color(0, 0, 0));
         DetailsLabel.setText("Detalles");
-        Background.add(DetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 32, 84, -1));
 
         ComentsLabel.setForeground(new java.awt.Color(0, 0, 0));
         ComentsLabel.setText("Comentarios");
-        Background.add(ComentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 190, 84, -1));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Información de contacto");
-        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 180, -1));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Telefono: 928 13 54 60");
-        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 220, 30));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Mail: concesionariopaco@gmail.com");
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 220, -1));
 
         comentarioTextBox.setText("Comentario");
-        Background.add(comentarioTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 140, -1));
 
         comentButton.setText("Añadir comentario");
         comentButton.addActionListener(new java.awt.event.ActionListener() {
@@ -139,17 +125,101 @@ public class AppConcesionarioUI extends javax.swing.JFrame {
                 comentButtonActionPerformed(evt);
             }
         });
-        Background.add(comentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, -1, -1));
+
+        javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
+        Background.setLayout(BackgroundLayout);
+        BackgroundLayout.setHorizontalGroup(
+            BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackgroundLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addComponent(modelList, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modelDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(ComentsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comentariosList, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comentarioTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comentButton))
+                        .addGap(6, 6, 6))
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addComponent(catalogoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(DetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(156, 156, 156))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(loginButton)
+                                .addGap(18, 18, 18)))
+                        .addComponent(pedidosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(signinButton, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+        BackgroundLayout.setVerticalGroup(
+            BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackgroundLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(catalogoButton))
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(DetailsLabel))
+                    .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pedidosButton)
+                        .addComponent(loginButton))
+                    .addComponent(signinButton))
+                .addGap(8, 8, 8)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel3)
+                        .addGap(34, 34, 34)
+                        .addComponent(comentarioTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(comentButton))
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modelList, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addComponent(modelDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(ComentsLabel)
+                                .addGap(10, 10, 10)
+                                .addComponent(comentariosList, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
         );
 
         pack();

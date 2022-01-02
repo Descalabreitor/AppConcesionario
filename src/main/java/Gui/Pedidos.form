@@ -137,6 +137,9 @@
           </Events>
         </Component>
         <Component class="java.awt.List" name="extraList">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="extraListActionPerformed"/>
+          </Events>
         </Component>
         <Component class="java.awt.List" name="list3">
         </Component>
@@ -183,6 +186,9 @@
           </Events>
         </Component>
         <Component class="java.awt.List" name="descripcionExtra">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="descripcionExtraActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

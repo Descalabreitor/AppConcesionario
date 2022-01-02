@@ -5,7 +5,9 @@
 package Gui;
 
 import Model.Concesionario;
+import Model.Extra;
 import Model.Modelo;
+import java.util.ArrayList;
 
 /**
  *
@@ -64,6 +66,12 @@ public class Pedidos extends javax.swing.JFrame {
             }
         });
 
+        extraList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                extraListActionPerformed(evt);
+            }
+        });
+
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Modelos");
 
@@ -80,6 +88,12 @@ public class Pedidos extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        descripcionExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descripcionExtraActionPerformed(evt);
             }
         });
 
@@ -161,6 +175,8 @@ public class Pedidos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private Model.Modelo modeloSeleccionado;
+    private ArrayList<Model.Extra> extrasSeleccionados;
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         new AppConcesionarioUI().setVisible(true);
@@ -173,11 +189,22 @@ public class Pedidos extends javax.swing.JFrame {
 
     private void modelListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelListActionPerformed
         showModelExtras(Concesionario.getModelos().get(modelList.getSelectedIndex()));
+        setModeloSeleccionado(modelList.getSelectedIndex());
     }//GEN-LAST:event_modelListActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void extraListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraListActionPerformed
+        // TODO add your handling code here:
+        showExtraDescription(extraList.getSelectedIndex());
+        setExtrasSeleccionados(extraList.getSelectedIndexes());
+    }//GEN-LAST:event_extraListActionPerformed
+
+    private void descripcionExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descripcionExtraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descripcionExtraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,9 +263,36 @@ public class Pedidos extends javax.swing.JFrame {
             modelList.add(Concesionario.getModelos().get(i).getNombre());
     }
 
-    private void showModelExtras(Modelo get) {
+    private void showModelExtras(Modelo modelo) {
         int i;
-        
-    
+        extraList.removeAll();
+        for(i = 0; i< modelo.getExtrasDisponibles().size();i++)
+           extraList.add(modelo.getExtrasDisponibles().get(i).getNombre());
     }
+
+    private void showExtraDescription(int selectedIndex) {
+       descripcionExtra.add(getModeloSeleccionado().getExtrasDisponibles().get(selectedIndex).getDescripcion());
+        
+    }
+
+    public Modelo getModeloSeleccionado() {
+        return modeloSeleccionado;
+    }
+
+    public void setModeloSeleccionado(int selectedIndex) {
+        this.modeloSeleccionado = Concesionario.getModelos().get(selectedIndex);
+    }
+
+    public ArrayList<Extra> getExtrasSeleccionados() {
+        return extrasSeleccionados;
+    }
+
+    public void setExtrasSeleccionados(int[] indicesSeleccionados){
+        for(int i = 0; i < indicesSeleccionados.length ;i++)
+            extrasSeleccionados.add(
+                    getModeloSeleccionado().getExtrasDisponibles().get(indicesSeleccionados[i]));
+        this.extrasSeleccionados = extrasSeleccionados;
+    }
+    
+    
 }
