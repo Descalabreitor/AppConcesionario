@@ -8,6 +8,9 @@ package Gui;
  *
  * @author adria
  */
+
+import Model.Concesionario;
+
 public class LogInForm extends javax.swing.JFrame {
 
     /**
@@ -149,7 +152,16 @@ public class LogInForm extends javax.swing.JFrame {
 
     private void confirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarButtonActionPerformed
         // TODO add your handling code here:
-        //Comparamos con datos en la persistencia para ver si existe tal cliente
+       String dni = dniTextField.getText();
+       String contraseña = passwordTextField.getText();
+       for(int i = 0; i < Concesionario.getClientes().size(); i++){
+        if(Concesionario.getClientes().get(i).getDni() == dni &&
+                Concesionario.getClientes().get(i).getContraseña() == contraseña ){
+            Concesionario.
+        }
+           
+       }
+       
     }//GEN-LAST:event_confirmarButtonActionPerformed
 
     private void confirmarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmarButtonMouseClicked
