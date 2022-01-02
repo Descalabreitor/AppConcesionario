@@ -18,21 +18,6 @@ public class AppConcesionario {
     
     public static void main(String[] args){
         Concesionario concesionario = new Concesionario();
-        ArrayList <Modelo>  testModelos = buildTestModelos();
-    
+  
     }
-
-    private static ArrayList <Modelo> buildTestModelos() {
-        ArrayList modelos = new ArrayList();
-        for(int i = 0; i < 5;i++){
-            Modelo modelo = new Modelo();
-        }
-        
-        return null;
-        
-    }
-    
-    
-    
-    
 }
