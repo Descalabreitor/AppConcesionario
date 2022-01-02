@@ -13,17 +13,17 @@ import java.util.ArrayList;
 public class Modelo {
     
     private String nombre;
-    private Vehiculo vehiculoDisponibles;
+    private ArrayList<Integer> vehiculosDisponibles;
     private int idModelo;
     private ArrayList<Extra> extrasDisponibles;
     private int precioBase;
     private ArrayList<Comentario> comentarios;
 
 
-    public Modelo(String nombre,Vehiculo vehiculoDisponibles, int idModelo, int precioBase, ArrayList<Extra> extrasDisponibles) {
+    public Modelo(String nombre,ArrayList<Integer> vehiculoDisponibles, int idModelo, int precioBase, ArrayList<Extra> extrasDisponibles) {
         
         this.nombre = nombre;
-        this.vehiculoDisponibles = vehiculoDisponibles;
+        this.vehiculosDisponibles = vehiculoDisponibles;
         this.idModelo = idModelo;
         this.extrasDisponibles = extrasDisponibles;
         this.precioBase = precioBase;
@@ -35,8 +35,8 @@ public class Modelo {
 
     
     
-    public Vehiculo getVehículoDisponibles() {
-        return vehiculoDisponibles;
+    public ArrayList<Integer> getVehiculosDisponibles() {
+        return vehiculosDisponibles;
     }
 
     public int getIdModelo() {
