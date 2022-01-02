@@ -1,0 +1,6 @@
+Nombre;Vehiculos disponibles;Id del Modelo;Precio Base;Extras disponibles;Comentarios (dni+comentario)
+Mercedes 3000;[0,1];5468;50000;[Aleron,GPS];[]
+Ford 4650;[2];5328;30000;[Luces automaticas];[42245959GEsta Bien]
+Fiat-True21;[3,4];2368;40000;[Camara trasera,Frenada automatica de emergencia];[45558696JEsta Muy Bien,44265459GEsta Mal]
+
+
