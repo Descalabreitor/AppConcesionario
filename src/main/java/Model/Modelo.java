@@ -62,5 +62,11 @@ public class Modelo {
         Comentario comentario = new Comentario(texto, autorDni);
         comentarios.add(comentario);
     }
+
+    public ArrayList<Comentario> getComentarios() {
+        return comentarios;
+    }
+    
+    
     
 }

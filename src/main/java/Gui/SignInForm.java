@@ -44,10 +44,10 @@ public class SignInForm extends javax.swing.JFrame {
         direccionText = new javax.swing.JTextField();
         ConfirmarDatos = new javax.swing.JButton();
         passwordText = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         apellidosText1 = new javax.swing.JTextField();
         dniText = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,24 +114,24 @@ public class SignInForm extends javax.swing.JFrame {
         });
         background.add(passwordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 260, 260, -1));
 
-        jButton2.setText("Cancelar");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        background.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 332, -1, -1));
-
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Tlfn");
         background.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 300, -1, -1));
         background.add(apellidosText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 98, 260, -1));
         background.add(dniText, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 182, 260, -1));
+
+        jButton3.setText("Cancelar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        background.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, 30));
 
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 380));
 
@@ -141,16 +141,6 @@ public class SignInForm extends javax.swing.JFrame {
     private void passwordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordTextActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-        new AppMainForm().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton2MouseClicked
 
     private void ConfirmarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmarDatosMouseClicked
         // TODO add your handling code here:
@@ -177,6 +167,16 @@ public class SignInForm extends javax.swing.JFrame {
     private void telefonoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_telefonoTextActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        new AppMainForm().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,7 +220,7 @@ public class SignInForm extends javax.swing.JFrame {
     private javax.swing.JTextField correoText;
     private javax.swing.JTextField direccionText;
     private javax.swing.JTextField dniText;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
