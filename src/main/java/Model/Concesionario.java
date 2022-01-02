@@ -14,6 +14,7 @@ public class Concesionario {
    private static ArrayList<Cliente> clientes;
    private static ArrayList<Modelo> modelos;
    private static ArrayList<Vehiculo> vehiculos;
+   private static ArrayList<Pedido> pedidos;
    private static ArrayList<Extra> extras; 
    
    
@@ -25,8 +26,8 @@ public class Concesionario {
        return cliente;
    }
    
-   public static Pedido crearPedido(Cliente cliente,Modelo modelo, ArrayList<Extra> extrasSeleccionados, int idPedido){
-       Pedido pedido = new Pedido(cliente,modelo,extrasSeleccionados, idPedido);
+   public static Pedido crearPedido(Cliente cliente,Modelo modelo, ArrayList<Extra> extrasSeleccionados){
+       Pedido pedido = new Pedido(cliente,modelo,extrasSeleccionados);
        cliente.addPedido(pedido);
        return pedido;
    }

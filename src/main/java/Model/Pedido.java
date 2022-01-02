@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 public class Pedido {
     
-    private int idPedido;
     private String fechaEntrega;
     private Cliente cliente;
     private Modelo modelo;
@@ -20,23 +19,20 @@ public class Pedido {
     private int precio;
     private Estado estado;
 
-    public int getIdPedido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     public enum Estado {
         enCamino, etregado, peticionEnvidada
     }
 
 
-    public Pedido(Cliente cliente, Modelo modelo, ArrayList<Extra> Extras, int idPedido) {
+    public Pedido(Cliente cliente, Modelo modelo, ArrayList<Extra> Extras) {
         this.cliente = cliente;
         this.modelo = modelo;
         this.estado = Estado.peticionEnvidada;
         this.extrasSeleccionados = Extras;
         calcularPrecio();
-        this.idPedido = idPedido;
-        
+       
     }
 
     public void calcularPrecio(){
@@ -51,10 +47,6 @@ public class Pedido {
         }catch(Exception e){
         this.precio = modelo.getPrecioBase()+ precioAñadido;
         }
-    }
-    
-    public int getidPedido(){
-        return idPedido;
     }
     
     public void setFechaEntrega(String fechaEntrega) {
