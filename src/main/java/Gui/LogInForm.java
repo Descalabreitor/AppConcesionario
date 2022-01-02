@@ -152,22 +152,24 @@ public class LogInForm extends javax.swing.JFrame {
 
     private void confirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarButtonActionPerformed
         // TODO add your handling code here:
+        
+    }//GEN-LAST:event_confirmarButtonActionPerformed
+
+    private void confirmarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmarButtonMouseClicked
+        // TODO add your handling code here:
        String dni = dniTextField.getText();
        String contraseña = passwordTextField.getText();
        for(int i = 0; i < Concesionario.getClientes().size(); i++){
         if(Concesionario.getClientes().get(i).getDni() == dni &&
                 Concesionario.getClientes().get(i).getContraseña() == contraseña ){
-            Concesionario.
+            Concesionario.setClienteActual(Concesionario.getClientes().get(i));
+            new AppMainForm().setVisible(true);
+            this.setVisible(false);
+        }else{
+            continue;
         }
-           
        }
-       
-    }//GEN-LAST:event_confirmarButtonActionPerformed
-
-    private void confirmarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmarButtonMouseClicked
-        // TODO add your handling code here:
-        new AppMainForm().setVisible(true);
-        this.setVisible(false);
+       new DatosIncorrectos().setVisible(true); 
     }//GEN-LAST:event_confirmarButtonMouseClicked
 
     private void dniTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniTextFieldActionPerformed
