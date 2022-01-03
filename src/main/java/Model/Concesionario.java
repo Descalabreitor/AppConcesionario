@@ -4,6 +4,8 @@
  */
 package Model;
 
+import static File.recuperarDatos.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -72,6 +74,15 @@ public class Concesionario {
 
     public static void setClienteActual(Cliente clienteActual) {
         Concesionario.clienteActual = clienteActual;
+    }
+
+    public void cargarDatos() throws IOException {
+        pedidos=recuperarPedidos(); 
+        clientes=recuperarClientes();
+        modelos=recuperarModelos();
+        vehiculos=recuperarVehiculos();
+        pedidos=recuperarPedidos();
+        extras=recuperarExtras();
     }
    
     

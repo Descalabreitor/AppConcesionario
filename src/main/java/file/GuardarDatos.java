@@ -33,16 +33,26 @@ public class GuardarDatos {
     public void guardarModelos(ArrayList<Modelo> filas) throws IOException {
         FileWriter archivo = crearAbrirArchivo("Modelos");
         ArrayList<String> extras = new ArrayList<String>();
+        ArrayList<String> listaComentarios = new ArrayList<String>();
         try {
             PrintWriter escritor= new PrintWriter(archivo);
             for (int i = 0; i < filas.size(); i++) {
                 for (int e = 0; e<filas.get(i).getExtrasDisponibles().size();e++){
                     extras.add(filas.get(i).getExtrasDisponibles().get(e).getNombre());
                 }
-                escritor.append(filas.get(i).getNombre()  + ";" +filas.get(i).getVehiculosDisponibles().toString()  + ";" +
-                        filas.get(i).getIdModelo() + ";" +  filas.get(i).getPrecioBase() + ";" + extras.toString() +"\n");
+                for (int j = 0; j <listaComentarios.size() ; j++) {
+                    listaComentarios.add(filas.get(i).getComentarios().get(j).getAutorDni()+filas.get(i).getComentarios().get(j).getComentario());
+                }
+                escritor.append(filas.get(i).getNombre()  + ";" +
+                        filas.get(i).getVehiculosDisponibles().toString()  + ";" +
+                        filas.get(i).getIdModelo() + ";" +
+                        filas.get(i).getPrecioBase() + ";" +
+                        extras.toString() + ";" +
+                        listaComentarios.toString() + "\n");
+                extras.clear();
+                listaComentarios.clear();
             }
-            extras.clear();
+
             cerrarArchivo(archivo);
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,6 +76,7 @@ public class GuardarDatos {
                         filas.get(i).getPrecio() + ";" +
                         filas.get(i).getEstado() + ";" +
                         filas.get(i).getFechaEntrega() +"\n");
+                extras.clear();
             }
 
             cerrarArchivo(archivo);
@@ -109,8 +120,8 @@ public class GuardarDatos {
                     "Direccion" + ";" + "Contraseña" + "\n");
         }
         else if ("Modelos".equals(nombreArchivo)){
-            escritor.append("Nombre" + ";" + "Vehículos disponibles" + ";" + "Id del Modelo" + ";" + "Precio Base" + ";" +
-                    "Extras disponibles" +"\n");
+            escritor.append("Nombre" + ";" + "Vehiculos disponibles" + ";" + "Id del Modelo" + ";" + "Precio Base" + ";" +
+                    "Extras disponibles" + ":" + "Comentarios (dni+comentario)" + "\n");
         }
         else if ("Vehiculos".equals(nombreArchivo)){
             escritor.append("Disponibilidad" + ";" + "Id del almacen" +"\n");
@@ -131,4 +142,6 @@ public class GuardarDatos {
             e2.printStackTrace();
         }
     }
+
+
 }

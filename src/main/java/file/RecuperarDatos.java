@@ -16,6 +16,7 @@ public class recuperarDatos {
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
         try {
             lector = new BufferedReader(new FileReader("Clientes.csv"));
+            String encabezado = lector.readLine();
             String linea = lector.readLine();
             while (null != linea) {
                 String[] lineaDividida = linea.split(";");
@@ -51,14 +52,16 @@ public class recuperarDatos {
         try {
 
             lector = new BufferedReader(new FileReader("Modelos.csv"));
+            String encabezado = lector.readLine();
             String linea = lector.readLine();
             while (null != linea) {
 
                 String[] lineaDividida = linea.split(";");
                 System.out.println(Arrays.toString(lineaDividida));
-                ArrayList<Extra> extrasDisponibles = recuperarExtras(lineaDividida[4]);
+                ArrayList<Extra> extrasDisponibles = recuperarExtrasDeObjeto(lineaDividida[4]);
                 ArrayList<Integer> vehiculosDisponibles = recuperarVehiculosDisponibles(lineaDividida[1]);
                 Modelo modelo = new Modelo(lineaDividida[0], vehiculosDisponibles, Integer.parseInt(lineaDividida[2]),Integer.parseInt(lineaDividida[3]), extrasDisponibles);
+                añadirComentarios(modelo,lineaDividida[5]);
                 modelos.add(modelo);
                 linea = lector.readLine();
             }
@@ -73,6 +76,17 @@ public class recuperarDatos {
         return modelos;
     }
 
+    private static void añadirComentarios(Modelo modelo, String comentarios) {
+
+        if (comentarios.length()>9){
+            String[] comentariosLista = comentarios.substring(1,comentarios.length()-1).split(",");
+            for (String comentario:comentariosLista) {
+                String autor = comentario.substring(0,9);
+                modelo.addComentario(comentario.substring(10), comentario.substring(0,9));
+        }
+        }
+    }
+
     private static ArrayList<Integer> recuperarVehiculosDisponibles(String listaDeInts) {
         String[] nombresDeExtras = listaDeInts.substring(1,listaDeInts.length()-1).split(",");
         ArrayList<Integer> vehiculosDisponibles = new ArrayList<Integer>();
@@ -82,7 +96,7 @@ public class recuperarDatos {
         return vehiculosDisponibles;
     }
 
-    private static ArrayList<Extra> recuperarExtras(String listaDeExtras) {
+    private static ArrayList<Extra> recuperarExtrasDeObjeto(String listaDeExtras) {
         String[] nombresDeExtras = listaDeExtras.substring(1,listaDeExtras.length()-1).split(",");
         ArrayList<Extra> extras = getExtras();
         ArrayList<Extra> extrasBuscados = new ArrayList<Extra>();
@@ -99,13 +113,14 @@ public class recuperarDatos {
         try {
 
             lector = new BufferedReader(new FileReader("Pedidos.csv"));
+            String encabezado = lector.readLine();
             String linea = lector.readLine();
             while (null != linea) {
                 String[] lineaDividida = linea.split(";");
                 System.out.println(Arrays.toString(lineaDividida));
                 Cliente cliente = recuperarClienteDePedido(lineaDividida);
                 Modelo modelo = recuperarModeloDePedido(lineaDividida);
-                ArrayList<Extra> extras = recuperarExtras(lineaDividida[2]);
+                ArrayList<Extra> extras = recuperarExtrasDeObjeto(lineaDividida[2]);
                 Pedido pedido = new Pedido(cliente,modelo,extras);
                 pedidos.add(pedido);
                 linea = lector.readLine();
@@ -135,6 +150,7 @@ public class recuperarDatos {
         try {
 
             lector = new BufferedReader(new FileReader("Vehiculos.csv"));
+            String encabezado = lector.readLine();
             String linea = lector.readLine();
             while (null != linea) {
                 String[] lineaSeparada = linea.split(";");
@@ -152,8 +168,30 @@ public class recuperarDatos {
             return vehiculos;
         }
     }
+
+    public static ArrayList<Extra>recuperarExtras() throws IOException {
+        ArrayList<Extra> extras = new ArrayList<Extra>();
+        BufferedReader lector = null;
+        try {
+
+            lector = new BufferedReader(new FileReader("Extras.csv"));
+            String linea = lector.readLine();
+            while (null != linea) {
+                String[] lineaSeparada = linea.split(";");
+                System.out.println(Arrays.toString(lineaSeparada));
+                Extra extra = new Extra(lineaSeparada[0],lineaSeparada[1],Integer.parseInt(lineaSeparada[2]));
+                extras.add(extra);
+                linea = lector.readLine();
+            }
+        } catch (Exception e) {
+        } finally {
+            if (null != lector) {
+                lector.close();
+            }
+            return extras;
+        }
+    }
+
 }
-
-
 
 
